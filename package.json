@@ -1,0 +1,23 @@
+{
+  "name": "fem-kanban",
+  "version": "1.0.0",
+  "description": "Front End Mentor Kanban Board Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/courses2022/fem-kanban.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/courses2022/fem-kanban/issues"
+  },
+  "homepage": "https://github.com/courses2022/fem-kanban#readme",
+  "devDependencies": {
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
