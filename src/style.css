@@ -1,0 +1,20 @@
+
+:root{
+    --MainColor: #211C2C;
+    --DarkAccent1: #605B68;
+    --DarkAccent2: #413C4A;
+    --BrightAccent1:#483C5F;
+    --BrightAccent2: #6E5B93;
+    --Gainsboro:#CCDBDC;
+    --MaizeCrayola:#FAC748;
+    --DodgerBlue:#0496FF;
+    --Ruby:#D81159;
+    --OuterSpaceCrayola:#263D42;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    color: whitesmoke;
+    
+}
