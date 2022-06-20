@@ -116,7 +116,27 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\r\n\r\nconsole.log('It worked');\n\n//# sourceURL=webpack://fem-kanban/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task */ \"./src/task.js\");\n/* harmony import */ var _taskStatus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./taskStatus */ \"./src/taskStatus.js\");\n\r\n\r\n\r\n\r\nlet ts = _taskStatus__WEBPACK_IMPORTED_MODULE_2__[\"default\"];\r\n\r\nconsole.log('It worked');\n\n//# sourceURL=webpack://fem-kanban/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/task.js":
+/*!*********************!*\
+  !*** ./src/task.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass Task{\r\n    constructor(title, description, subtasks, status){\r\n        this.title = title;\r\n        this.description = description;\r\n        this.subtasks = subtasks;\r\n        this.status = status;\r\n\r\n    }\r\n\r\n    get title(){\r\n        return this._title;\r\n    }\r\n\r\n    set title(newTitle){\r\n        newTitle = newTitle.trim();\r\n        if(newTitle === ''){\r\n            throw 'The name cannot be empty';\r\n        }\r\n        this._title = newTitle;\r\n    }\r\n\r\n    get description(){\r\n        return this._description;\r\n    }\r\n\r\n    set description(newDescription){\r\n        this._description = newDescription.trim();\r\n    }\r\n\r\n    get subtasks(){\r\n        return this._subtasks;\r\n    }\r\n\r\n    set subtasks(newSubtasks){\r\n        this._subtasks = [];\r\n        newSubtasks.forEach(task => {\r\n            this._subtasks.push(task);\r\n            \r\n        });\r\n\r\n    }\r\n\r\n    get status(){\r\n        return this._status;\r\n    }\r\n\r\n    set status(newStatus){\r\n        this._status = newStatus;\r\n    }\r\n   \r\n\r\n\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Task);\n\n//# sourceURL=webpack://fem-kanban/./src/task.js?");
+
+/***/ }),
+
+/***/ "./src/taskStatus.js":
+/*!***************************!*\
+  !*** ./src/taskStatus.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst TaskStatus = {\r\n    TODO: 1,\r\n    DOING: 2,\r\n    DONE: 3\r\n};\r\n\r\nObject.freeze(TaskStatus);\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TaskStatus);\n\n//# sourceURL=webpack://fem-kanban/./src/taskStatus.js?");
 
 /***/ })
 

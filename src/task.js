@@ -1,8 +1,8 @@
 class Task{
-    constructor(title, description, subtask, status){
+    constructor(title, description, subtasks, status){
         this.title = title;
         this.description = description;
-        this.subtask = subtask;
+        this.subtasks = subtasks;
         this.status = status;
 
     }
@@ -27,5 +27,29 @@ class Task{
         this._description = newDescription.trim();
     }
 
-    
+    get subtasks(){
+        return this._subtasks;
+    }
+
+    set subtasks(newSubtasks){
+        this._subtasks = [];
+        newSubtasks.forEach(task => {
+            this._subtasks.push(task);
+            
+        });
+
+    }
+
+    get status(){
+        return this._status;
+    }
+
+    set status(newStatus){
+        this._status = newStatus;
+    }
+   
+
+
 }
+
+export default Task;
