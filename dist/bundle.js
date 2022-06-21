@@ -110,13 +110,33 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/dom/domFunctions.js":
+/*!*********************************!*\
+  !*** ./src/dom/domFunctions.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"appendListItem\": () => (/* binding */ appendListItem),\n/* harmony export */   \"clearList\": () => (/* binding */ clearList)\n/* harmony export */ });\n\r\nfunction createListItem(title, completedTasks, totalTasks) {\r\n    const el = document.createElement('div');\r\n    el.classList.add(\"todoItem\");\r\n\r\n    const titleDiv = document.createElement('div');\r\n    titleDiv.classList.add(\"todoTitle\");\r\n    titleDiv.innerText = title;\r\n    el.appendChild(titleDiv);\r\n\r\n    const subTaskDiv = document.createElement('div');\r\n    subTaskDiv.classList.add(\"subtasksSummary\");\r\n    subTaskDiv.innerText = `${completedTasks} of ${totalTasks} subtasks`;\r\n    el.appendChild(subTaskDiv);\r\n\r\n    return el;\r\n}\r\n\r\nfunction appendListItem(dest, title, completedTasks, totalTasks){\r\n    dest.appendChild(createListItem(title, completedTasks, totalTasks));\r\n}\r\n\r\nfunction clearList(dest){\r\n    dest.innerText = \"\";\r\n}\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://fem-kanban/./src/dom/domFunctions.js?");
+
+/***/ }),
+
+/***/ "./src/dom/domHelpers.js":
+/*!*******************************!*\
+  !*** ./src/dom/domHelpers.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"doingList\": () => (/* binding */ doingList),\n/* harmony export */   \"doneList\": () => (/* binding */ doneList),\n/* harmony export */   \"todoList\": () => (/* binding */ todoList)\n/* harmony export */ });\nconst todoList = document.querySelector('.todo');\r\nconst doingList = document.querySelector('.doing');\r\nconst doneList = document.querySelector('.done');\r\n\r\n\n\n//# sourceURL=webpack://fem-kanban/./src/dom/domHelpers.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task */ \"./src/task.js\");\n/* harmony import */ var _taskStatus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./taskStatus */ \"./src/taskStatus.js\");\n\r\n\r\n\r\n\r\nlet ts = _taskStatus__WEBPACK_IMPORTED_MODULE_2__[\"default\"];\r\n\r\nconsole.log('It worked');\n\n//# sourceURL=webpack://fem-kanban/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task */ \"./src/task.js\");\n/* harmony import */ var _taskStatus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./taskStatus */ \"./src/taskStatus.js\");\n/* harmony import */ var _dom_domHelpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dom/domHelpers */ \"./src/dom/domHelpers.js\");\n/* harmony import */ var _dom_domFunctions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dom/domFunctions */ \"./src/dom/domFunctions.js\");\n\r\n\r\n\r\n\r\n\r\n\r\nlet ts = _taskStatus__WEBPACK_IMPORTED_MODULE_2__[\"default\"];\r\n\r\nconsole.log(_dom_domHelpers__WEBPACK_IMPORTED_MODULE_3__.todoList);\r\n\r\nconsole.log('It worked');\n\n//# sourceURL=webpack://fem-kanban/./src/index.js?");
 
 /***/ }),
 
