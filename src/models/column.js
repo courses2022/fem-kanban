@@ -1,4 +1,3 @@
-import {idGenerator} from '../idGenerator';
 
 export default function Column(name, idGenerator){
     let _name = name;
@@ -39,7 +38,13 @@ export default function Column(name, idGenerator){
             }
         },
         set updateTask(task){
-            
+            if(task.type === 'task'){
+                let index = _tasks.findIndex(t => {return t.id === task.id});
+                _tasks[index] = task;
+            }
+            else{
+                throw "Task object expected";
+            }
         }
 
     }

@@ -45,7 +45,7 @@ export default function Board(name, idGenerator){
                 _columns[index] = column;
                }
                else{
-                   throw "Column object expected"
+                   throw "Column object expected";
                }
         },
         get type(){
