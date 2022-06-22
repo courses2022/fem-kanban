@@ -130,13 +130,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/idGenerator.js":
+/*!****************************!*\
+  !*** ./src/idGenerator.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"idGenerator\": () => (/* binding */ idGenerator)\n/* harmony export */ });\nconst Nanoid = __webpack_require__(/*! nanoid */ \"./node_modules/nanoid/index.browser.js\");\r\n\r\nfunction idGenerator(){\r\n    return Nanoid.nanoid(16);\r\n}\r\n\n\n//# sourceURL=webpack://fem-kanban/./src/idGenerator.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task */ \"./src/task.js\");\n/* harmony import */ var _taskStatus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./taskStatus */ \"./src/taskStatus.js\");\n/* harmony import */ var _dom_domHelpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dom/domHelpers */ \"./src/dom/domHelpers.js\");\n/* harmony import */ var _dom_domFunctions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dom/domFunctions */ \"./src/dom/domFunctions.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nfor (let index = 0; index < 5; index++) {\r\n    (0,_dom_domFunctions__WEBPACK_IMPORTED_MODULE_4__.appendListItem)(_dom_domHelpers__WEBPACK_IMPORTED_MODULE_3__.doingList, `Todo task item ${index}`, 0, index);\r\n    \r\n}\r\n\r\nconsole.log(_dom_domHelpers__WEBPACK_IMPORTED_MODULE_3__.todoList);\r\n\r\nconsole.log('It worked');\n\n//# sourceURL=webpack://fem-kanban/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task */ \"./src/task.js\");\n/* harmony import */ var _taskStatus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./taskStatus */ \"./src/taskStatus.js\");\n/* harmony import */ var _dom_domHelpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dom/domHelpers */ \"./src/dom/domHelpers.js\");\n/* harmony import */ var _dom_domFunctions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dom/domFunctions */ \"./src/dom/domFunctions.js\");\n/* harmony import */ var _idGenerator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./idGenerator */ \"./src/idGenerator.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nfor (let index = 0; index < 5; index++) {\r\n    (0,_dom_domFunctions__WEBPACK_IMPORTED_MODULE_4__.appendListItem)(_dom_domHelpers__WEBPACK_IMPORTED_MODULE_3__.doingList, `Todo task item ${index}`, 0, index);\r\n    \r\n}\r\n\r\nconsole.log('It worked');\n\n//# sourceURL=webpack://fem-kanban/./src/index.js?");
 
 /***/ }),
 
@@ -157,6 +167,26 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst TaskStatus = {\r\n    TODO: 1,\r\n    DOING: 2,\r\n    DONE: 3\r\n};\r\n\r\nObject.freeze(TaskStatus);\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TaskStatus);\n\n//# sourceURL=webpack://fem-kanban/./src/taskStatus.js?");
+
+/***/ }),
+
+/***/ "./node_modules/nanoid/index.browser.js":
+/*!**********************************************!*\
+  !*** ./node_modules/nanoid/index.browser.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"customAlphabet\": () => (/* binding */ customAlphabet),\n/* harmony export */   \"customRandom\": () => (/* binding */ customRandom),\n/* harmony export */   \"nanoid\": () => (/* binding */ nanoid),\n/* harmony export */   \"random\": () => (/* binding */ random),\n/* harmony export */   \"urlAlphabet\": () => (/* reexport safe */ _url_alphabet_index_js__WEBPACK_IMPORTED_MODULE_0__.urlAlphabet)\n/* harmony export */ });\n/* harmony import */ var _url_alphabet_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./url-alphabet/index.js */ \"./node_modules/nanoid/url-alphabet/index.js\");\n\nlet random = bytes => crypto.getRandomValues(new Uint8Array(bytes))\nlet customRandom = (alphabet, defaultSize, getRandom) => {\n  let mask = (2 << (Math.log(alphabet.length - 1) / Math.LN2)) - 1\n  let step = -~((1.6 * mask * defaultSize) / alphabet.length)\n  return (size = defaultSize) => {\n    let id = ''\n    while (true) {\n      let bytes = getRandom(step)\n      let j = step\n      while (j--) {\n        id += alphabet[bytes[j] & mask] || ''\n        if (id.length === size) return id\n      }\n    }\n  }\n}\nlet customAlphabet = (alphabet, size = 21) =>\n  customRandom(alphabet, size, random)\nlet nanoid = (size = 21) =>\n  crypto.getRandomValues(new Uint8Array(size)).reduce((id, byte) => {\n    byte &= 63\n    if (byte < 36) {\n      id += byte.toString(36)\n    } else if (byte < 62) {\n      id += (byte - 26).toString(36).toUpperCase()\n    } else if (byte > 62) {\n      id += '-'\n    } else {\n      id += '_'\n    }\n    return id\n  }, '')\n\n\n//# sourceURL=webpack://fem-kanban/./node_modules/nanoid/index.browser.js?");
+
+/***/ }),
+
+/***/ "./node_modules/nanoid/url-alphabet/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/nanoid/url-alphabet/index.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"urlAlphabet\": () => (/* binding */ urlAlphabet)\n/* harmony export */ });\nconst urlAlphabet =\n  'useandom-26T198340PX75pxJACKVERYMINDBUSHWOLF_GQZbfghjklqvwyzrict'\n\n\n//# sourceURL=webpack://fem-kanban/./node_modules/nanoid/url-alphabet/index.js?");
 
 /***/ })
 

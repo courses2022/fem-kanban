@@ -1,8 +1,10 @@
-export default function Board(name){
+import {idGenerator} from '../idGenerator';
+
+export default function Board(name, idGenerator){
     let _name = name;
     let _columns = [];
     let _type = "board";
-    let _id = new Date().getTime();
+    let _id = idGenerator();
     return{
         set name(BoardName){
             _name = BoardName;
@@ -10,7 +12,9 @@ export default function Board(name){
         get name(){
             return _name;
         },
-
+        get id(){
+            return _id;
+        },
         get columns(){
             return _columns;
         },
