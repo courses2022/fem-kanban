@@ -130,6 +130,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/dummydata.js":
+/*!**************************!*\
+  !*** ./src/dummydata.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"generateDummyData\": () => (/* binding */ generateDummyData)\n/* harmony export */ });\n/* harmony import */ var _idGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./idGenerator */ \"./src/idGenerator.js\");\n/* harmony import */ var _models_board__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./models/board */ \"./src/models/board.js\");\n/* harmony import */ var _models_column__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./models/column */ \"./src/models/column.js\");\n\r\n\r\n\r\n\r\nfunction generateDummyData() {\r\n\r\n    let newBoard = (0,_models_board__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(\"Platform Launch\", _idGenerator__WEBPACK_IMPORTED_MODULE_0__.idGenerator);\r\n\r\n    let columns = [\r\n        \"Todo\", \"Doing\", \"Done\"\r\n    ];\r\n\r\n    columns.forEach(column => {\r\n        let newColumn = (0,_models_column__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(column, _idGenerator__WEBPACK_IMPORTED_MODULE_0__.idGenerator);\r\n        newBoard.addColumn=newColumn;\r\n    });\r\n\r\n    return newBoard;\r\n}\r\n\r\nlet board = {\r\n    name: \"Platform Launch\",\r\n    columns:[{name:\"Todo\",\r\n                items:[]\r\n            },\r\n            {\r\n                name:\"Doing\",\r\n                items:[]\r\n            },\r\n            {\r\n                name:\"Done\",\r\n                items:[]\r\n            }\r\n        ]\r\n}\r\n\r\nlet task = {\r\n    title: \"\",\r\n    description:\"\",\r\n    subtasks:[]\r\n}\r\n\r\nlet subtask = {\r\n    name:\"\",\r\n    completed:false\r\n}\n\n//# sourceURL=webpack://fem-kanban/./src/dummydata.js?");
+
+/***/ }),
+
 /***/ "./src/idGenerator.js":
 /*!****************************!*\
   !*** ./src/idGenerator.js ***!
@@ -146,7 +156,27 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task */ \"./src/task.js\");\n/* harmony import */ var _taskStatus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./taskStatus */ \"./src/taskStatus.js\");\n/* harmony import */ var _dom_domHelpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dom/domHelpers */ \"./src/dom/domHelpers.js\");\n/* harmony import */ var _dom_domFunctions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dom/domFunctions */ \"./src/dom/domFunctions.js\");\n/* harmony import */ var _idGenerator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./idGenerator */ \"./src/idGenerator.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nfor (let index = 0; index < 5; index++) {\r\n    (0,_dom_domFunctions__WEBPACK_IMPORTED_MODULE_4__.appendListItem)(_dom_domHelpers__WEBPACK_IMPORTED_MODULE_3__.doingList, `Todo task item ${index}`, 0, index);\r\n    \r\n}\r\n\r\nconsole.log('It worked');\n\n//# sourceURL=webpack://fem-kanban/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task */ \"./src/task.js\");\n/* harmony import */ var _taskStatus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./taskStatus */ \"./src/taskStatus.js\");\n/* harmony import */ var _dom_domHelpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dom/domHelpers */ \"./src/dom/domHelpers.js\");\n/* harmony import */ var _dom_domFunctions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dom/domFunctions */ \"./src/dom/domFunctions.js\");\n/* harmony import */ var _idGenerator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./idGenerator */ \"./src/idGenerator.js\");\n/* harmony import */ var _dummydata__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dummydata */ \"./src/dummydata.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nfor (let index = 0; index < 5; index++) {\r\n    (0,_dom_domFunctions__WEBPACK_IMPORTED_MODULE_4__.appendListItem)(_dom_domHelpers__WEBPACK_IMPORTED_MODULE_3__.doingList, `Todo task item ${index}`, 0, index);\r\n    \r\n}\r\n\r\nlet currentData = [];\r\ncurrentData.push((0,_dummydata__WEBPACK_IMPORTED_MODULE_6__.generateDummyData)());\r\n\r\nconsole.log('It worked');\n\n//# sourceURL=webpack://fem-kanban/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/models/board.js":
+/*!*****************************!*\
+  !*** ./src/models/board.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Board)\n/* harmony export */ });\n\r\nfunction Board(name, idGenerator){\r\n    let _name = name;\r\n    let _columns = [];\r\n    let _type = \"board\";\r\n    let _id = idGenerator();\r\n    return{\r\n        set name(boardName){\r\n            let val = boardName.trim();\r\n            if(val.length == 0)\r\n                throw \"Board name cant be blank\";\r\n            _name = val;\r\n            \r\n        },\r\n        get name(){\r\n            return _name;\r\n        },\r\n        get id(){\r\n            return _id;\r\n        },\r\n        get columns(){\r\n            return _columns;\r\n        },\r\n        set addColumn(column){\r\n            if(column.type === 'column'){\r\n                _columns.push(column);\r\n            }\r\n            else{\r\n                throw \"Column object expected\"\r\n            }\r\n\r\n        },\r\n        set removeColumn(column){\r\n            if(column.type === 'column'){\r\n             _columns = _columns.filter(current => current.id != column.id);\r\n            }\r\n            else{\r\n                throw \"Column object expected\"\r\n            }\r\n        },\r\n\r\n        set updateColumn(column){\r\n            if(column.type === 'column'){\r\n                let index = _columns.findIndex( col => {return col.id === column.id})\r\n                _columns[index] = column;\r\n               }\r\n               else{\r\n                   throw \"Column object expected\"\r\n               }\r\n        },\r\n        get type(){\r\n            return _type;\r\n        }\r\n\r\n\r\n\r\n    };\r\n}\r\n\n\n//# sourceURL=webpack://fem-kanban/./src/models/board.js?");
+
+/***/ }),
+
+/***/ "./src/models/column.js":
+/*!******************************!*\
+  !*** ./src/models/column.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Column)\n/* harmony export */ });\n/* harmony import */ var _idGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../idGenerator */ \"./src/idGenerator.js\");\n\r\n\r\nfunction Column(name, idGenerator){\r\n    let _name = name;\r\n    let _tasks = [];\r\n    let _type = \"column\";\r\n    let _id = idGenerator();\r\n\r\n    return{\r\n        set name(columnName){\r\n            let val = columnName.trim();\r\n            if(val.length == 0)\r\n                throw \"Column name cant be blank\";\r\n            _name = val;\r\n        },\r\n        get name(){\r\n            return _name;\r\n        },\r\n        get type(){\r\n            return _type;\r\n        },\r\n        get id(){\r\n            return _id;\r\n        },\r\n        get tasks(){\r\n            return _tasks;\r\n        },\r\n        set addTask(task){\r\n            if(task.type = 'task'){\r\n                _tasks.push(task);\r\n            }\r\n            else{\r\n                throw \"Task object expected\";\r\n            }\r\n        },\r\n        set removeTask(task){\r\n            if(task.type === 'task'){\r\n                _tasks = _tasks.filter(current => current.id != task.id);\r\n            }\r\n        },\r\n        set updateTask(task){\r\n            \r\n        }\r\n\r\n    }\r\n}\n\n//# sourceURL=webpack://fem-kanban/./src/models/column.js?");
 
 /***/ }),
 

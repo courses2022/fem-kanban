@@ -1,4 +1,3 @@
-import {idGenerator} from '../idGenerator';
 
 export default function Board(name, idGenerator){
     let _name = name;
@@ -6,8 +5,12 @@ export default function Board(name, idGenerator){
     let _type = "board";
     let _id = idGenerator();
     return{
-        set name(BoardName){
-            _name = BoardName;
+        set name(boardName){
+            let val = boardName.trim();
+            if(val.length == 0)
+                throw "Board name cant be blank";
+            _name = val;
+            
         },
         get name(){
             return _name;
@@ -19,7 +22,7 @@ export default function Board(name, idGenerator){
             return _columns;
         },
         set addColumn(column){
-            if(column.type = 'column'){
+            if(column.type === 'column'){
                 _columns.push(column);
             }
             else{
@@ -28,7 +31,7 @@ export default function Board(name, idGenerator){
 
         },
         set removeColumn(column){
-            if(column.type = 'column'){
+            if(column.type === 'column'){
              _columns = _columns.filter(current => current.id != column.id);
             }
             else{
@@ -37,8 +40,8 @@ export default function Board(name, idGenerator){
         },
 
         set updateColumn(column){
-            if(column.type = 'column'){
-                const index = _columns.findIndex( col => {return col.id === column.id})
+            if(column.type === 'column'){
+                let index = _columns.findIndex( col => {return col.id === column.id})
                 _columns[index] = column;
                }
                else{
