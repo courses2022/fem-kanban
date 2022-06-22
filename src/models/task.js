@@ -1,9 +1,10 @@
 class Task{
-    constructor(title, description, subtasks, status){
+    constructor(title, description, subtasks, status, idGenerator){
         this.title = title;
         this.description = description;
         this.subtasks = subtasks;
         this.status = status;
+        this.id = idGenerator();
 
     }
 
@@ -18,6 +19,11 @@ class Task{
         }
         this._title = newTitle;
     }
+
+    get id(){
+        return this._id;
+    }
+    
 
     get description(){
         return this._description;

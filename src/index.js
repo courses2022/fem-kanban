@@ -1,5 +1,5 @@
 import './style.css';
-import Task from  './task';
+import Task from  './models/task';
 import TaskStatus from "./taskStatus";
 import {todoList, doingList, doneList} from "./dom/domHelpers";
 import {appendListItem, clearList} from "./dom/domFunctions";
