@@ -14,7 +14,33 @@ export default function Column(name, idGenerator){
             _name = val;
         },
         get name(){
-            return
+            return _name;
+        },
+        get type(){
+            return _type;
+        },
+        get id(){
+            return _id;
+        },
+        get tasks(){
+            return _tasks;
+        },
+        set addTask(task){
+            if(task.type = 'task'){
+                _tasks.push(task);
+            }
+            else{
+                throw "Task object expected";
+            }
+        },
+        set removeTask(task){
+            if(task.type === 'task'){
+                _tasks = _tasks.filter(current => current.id != task.id);
+            }
+        },
+        set updateTask(task){
+            
         }
+
     }
 }
