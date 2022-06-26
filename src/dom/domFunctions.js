@@ -46,5 +46,39 @@ function appendListItem2(targetName, listItem){
 
 }
 
-export {appendListItem, appendListItem2, clearList}
+function generateColumnHeaders(target, columns){
+
+    columns.forEach(column => {
+        let el = document.createElement('div');
+        el.classList.add('columnName');
+        
+        let circle = document.createElement('div');
+        circle.setAttribute('id', 'yellowcircle');
+       
+        let text = document.createElement('div');
+        text.innerText = `${column.name.toUpperCase()} (${column.tasks.length})`
+        el.appendChild(circle);
+        el.appendChild(text);
+        target.appendChild(el);
+    });
+
+    let el = document.createElement('div');
+    target.appendChild(el);
+    
+    columns.forEach(column => {
+        let el = document.createElement('div');
+        el.classList.add(`${column.name.toLowerCase()}`);
+        target.appendChild(el);
+    });
+
+    let newEl = document.createElement('div');
+    newEl.classList.add('newColumn');
+    newEl.innerText = '+ Add new Column';
+    target.appendChild(newEl);
+
+    
+
+}
+
+export {appendListItem, appendListItem2, clearList, generateColumnHeaders}
 
