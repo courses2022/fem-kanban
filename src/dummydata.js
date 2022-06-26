@@ -18,7 +18,7 @@ export function generateDummyData() {
     return newBoard;
 }
 
-let board = {
+export let board = {
     name: "Platform Launch",
     columns:[{name:"Todo",
                 items:[

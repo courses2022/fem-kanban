@@ -24,5 +24,27 @@ function clearList(dest){
     dest.innerText = "";
 }
 
-export {appendListItem, clearList}
+function appendListItem2(targetName, listItem){
+    let target = document.querySelector(`.${targetName}`);
+
+    const el = document.createElement('div');
+    el.classList.add("todoItem");
+
+    const titleDiv = document.createElement('div');
+    titleDiv.classList.add("todoTitle");
+    titleDiv.innerText = listItem.title;
+    el.appendChild(titleDiv);
+
+    const subTaskDiv = document.createElement('div');
+    subTaskDiv.classList.add('subtasksSummary');
+    let completedCount = listItem.subtasks.filter(subtask => subtask.completed == true).length;
+    let subtasksCount = listItem.subtasks.length;
+    subTaskDiv.innerText = `${completedCount} of ${subtasksCount}`;
+    el.appendChild(subTaskDiv);
+
+    target.appendChild(el);
+
+}
+
+export {appendListItem, appendListItem2, clearList}
 
