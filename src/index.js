@@ -5,11 +5,16 @@ import {todoList, doingList, doneList} from "./dom/domHelpers";
 import {appendListItem, appendListItem2, clearList} from "./dom/domFunctions";
 import {idGenerator} from './idGenerator';
 import { generateDummyData } from './dummydata';
-import { board } from './dummydata';
+import { board as platformLaunch} from './dummydata';
 
-let temp = board;
+let data = [];
+let currentBoard = [];
 
-board.columns.forEach(column => {
+//Use dummy data for testing
+data.push(platformLaunch);
+currentBoard = platformLaunch;
+
+currentBoard.columns.forEach(column => {
     let targetName=column.name.toLowerCase();
     column.items.forEach(item => {
         appendListItem2(targetName, item);
@@ -17,14 +22,5 @@ board.columns.forEach(column => {
     });
     
 });
-for (let index = 0; index < 5; index++) {
-    appendListItem(doingList, `Todo task item ${index}`, 0, index);
-    
-}
-
-
-
-let currentData = [];
-currentData.push(generateDummyData());
 
 console.log('It worked');
