@@ -105,7 +105,18 @@ function generateBoardButtons(target, boards){
 
 }
 
+function generateBoardItems(currentBoard){
+    currentBoard.columns.forEach(column => {
+        let targetName=column.name.toLowerCase();
+        column.tasks.forEach(task => {
+            appendListItem2(targetName, task);
+            
+        });
+        
+    });
+}
 
 
-export {appendListItem, appendListItem2, clearList, generateColumnHeaders, generateBoardButtons}
+
+export {appendListItem, appendListItem2, clearList, generateColumnHeaders, generateBoardButtons, generateBoardItems}
 

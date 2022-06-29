@@ -1,4 +1,5 @@
 import './style.css';
+
 import Task from  './models/task';
 import Board from './models/board';
 import TaskStatus from "./taskStatus";
@@ -7,12 +8,17 @@ import {appendListItem, appendListItem2, clearList, generateColumnHeaders, gener
 import {idGenerator} from './idGenerator';
 import { generateDummyData } from './dummydata';
 import { board as platformLaunch} from './dummydata';
+import {addNewBoardAction} from './dom/events';
 
 let data = [];
 let currentBoard = null;
 let content = document.querySelector('.content');
 let boards = document.querySelector('.boards');
 let boardName = document.querySelector('.headerText');
+
+let createNewBoard = document.querySelector('.createNewBoard');
+createNewBoard.addEventListener("click", addNewBoardAction);
+
 
 //Use dummy data for testing
 data.push(generateDummyData());
@@ -32,8 +38,12 @@ generateBoardButtons(boards, data);
 generateBoardItems(currentBoard);
 
 
-function setBoardName(boardName, name){
+async function setBoardName(boardName, name){
     boardName.innerText = name;
+   
+    
 }
+
+
 
 console.log('It worked');

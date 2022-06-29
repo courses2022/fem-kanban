@@ -208,3 +208,13 @@ html, body{
 .newColumn:hover{
     background-color: var(--DarkAccent2);
 }
+
+.swal2-validation-message{
+    background-color: var(--DarkAccent2) !important;
+}
+
+.swal2-input{
+    border-color: black !important;
+    background-color: #CCDBDC !important;
+    border-radius: 8px !important;
+}
