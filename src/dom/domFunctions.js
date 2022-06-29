@@ -80,5 +80,32 @@ function generateColumnHeaders(target, columns){
 
 }
 
-export {appendListItem, appendListItem2, clearList, generateColumnHeaders}
+function generateBoardButtons(target, boards){
+    target.innerHTML ="";
+    boards.forEach(board => {
+        let button = document.createElement('button');
+        let div = document.createElement('div');
+
+        let icon = document.createElement('img');
+        icon.setAttribute('src', './kanbanico.png');
+        div.appendChild(icon);
+        let p = document.createElement('p');
+        p.innerText = board.name
+        div.appendChild(p);
+
+        let div2 = document.createElement('div');
+        div2.innerHTML = "&vellip;";
+
+        button.appendChild(div);
+        button.appendChild(div2);
+
+        target.appendChild(button);
+    });
+
+
+}
+
+
+
+export {appendListItem, appendListItem2, clearList, generateColumnHeaders, generateBoardButtons}
 
