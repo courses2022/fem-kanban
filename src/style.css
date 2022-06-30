@@ -60,6 +60,8 @@ html, body{
     width: 240px;
     justify-content: space-between;
     padding-right: 20px;
+    cursor: pointer;
+    position: relative;
 }
 
 .boards>button>div{
@@ -88,7 +90,24 @@ html, body{
 .sidebar >p:last-child{
     color: slateblue !important;
     text-align: center;
+    cursor: pointer;
 }
+
+.removeBoardBtn{
+    background: url("./trash.png") no-repeat ;
+    background-size: contain;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    padding-bottom: 5px;
+}
+
+
+.removeBoardBtn:hover{
+    background: url("./trashHighlight.png") no-repeat ;
+
+}
+
 
 .main{
     width: 100%;

@@ -94,11 +94,12 @@ function generateBoardButtons(target, boards){
         div.appendChild(p);
 
         let div2 = document.createElement('div');
-        div2.innerHTML = "&vellip;";
+        div2.classList.add('removeBoardBtn');
+        //div2.innerHTML = "&vellip;";
 
         button.appendChild(div);
         button.appendChild(div2);
-
+        
         target.appendChild(button);
     });
 

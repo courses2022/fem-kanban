@@ -12,6 +12,8 @@ import {addNewBoardAction} from './dom/events';
 
 let data = [];
 let currentBoard = null;
+let currentColumn = null;
+let currentTask = null;
 let content = document.querySelector('.content');
 let boards = document.querySelector('.boards');
 let boardName = document.querySelector('.headerText');
